@@ -4,7 +4,7 @@
 
 
 {% for college in colleges %}
-<form action="/temp" method="post">
+<form action="/review" method="post">
     {% csrf_token %}
 
     <input type="text" name="id_college" id="" value={{college.college_id}}>
