@@ -1,3 +1,159 @@
-body{
-background-color:mild;
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+
+}
+/* ---------navbar------- */
+.navbarDiv{
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: rgb(222, 235, 235);
+height: fit-content;
+font-weight: bold;
+font-size: 1.2em;
+position: sticky;
+}
+
+.logoDiv{
+  border: 1px solid red;
+  margin-left: -6em;
+}
+
+.inpgroup{
+  border: 2px solid rgb(76, 190, 54);
+  display: flex;
+  align-items: center;
+  width: 12em;
+  margin-bottom: 0.5em;
+
+}
+.navbarLinks{
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  margin-right: -6em;
+}
+
+.navbarLinks li{
+  list-style: none;
+}
+
+.navbarLinks a{
+  color: black;
+}
+
+
+
+/* ----body1------ */
+.bodyDiv1{
+  height: 35em;
+}
+.mySlides {
+    display:none;
+    height: 35em;
+    padding: 1em;
+}
+
+
+
+/* ----body2------ */
+.bodyDiv2{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  height: 50em;
+  grid-gap: 1em;
+
+}
+
+.grid-item{
+  display: grid;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0.5em 0.5em 0.5em rgb(163, 149, 201);
+  border: 1px solid rgb(206, 18, 18);
+  border-radius: 1em;
+}
+
+.bodyDiv3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(77, 65, 50);
+  font-weight: bold;
+  height: 3.5em;
+}
+
+
+/* --------FOOTER------ */
+.footer-dark {
+  padding:50px 0;
+  color:#fff;
+  background-color:#282d32;
+  height: 18em;
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.8;
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+.footer-dark .item.text p {
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+  height: 10em;
+  margin-top: -2em;
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:38px;
+  height:38px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  margin:0 5px;
+  margin-top: -0.5em;
+  color:white;
+  border: 1px solid green;
+
+}
+
+
+.footer-dark .copyright {
+  border: 1px solid red;
+  text-align:center;
+  padding-top:20px;
+  margin-top: 2em;
+  font-size:13px;
+  color: #fff;
 }

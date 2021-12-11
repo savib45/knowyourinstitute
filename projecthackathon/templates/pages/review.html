@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% for college in colleges %}
+<form action="/temp" method="post">
+    {% csrf_token %}
+
+    <input type="text" name="id_college" id="" value={{college.college_id}}>
+    {{form}}
+    {% for review in college.reviews %}
+        {{ review.text}}
+        {{ review.rating}}
+         {{review.user.first_name}}
+    {%endfor%}
+    <button type="submit">Submit</button>
+</form>
+{% endfor %}
+
+{%endblock%}
