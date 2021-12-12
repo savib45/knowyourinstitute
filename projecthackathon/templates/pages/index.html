@@ -2,5 +2,7 @@
 {% load static %}
 {% block content %}
 this is index
-<a href="">NCCS</a>
+{% for college in colleges %}
+<a href="{% url 'login'  %}"><img src="{{college.college_photos.url}}"/></a>
+{% endfor %}
 {% endblock %}

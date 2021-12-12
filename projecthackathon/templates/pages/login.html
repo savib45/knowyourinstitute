@@ -23,7 +23,7 @@ background-color: rgb(243, 243, 243);
 {% csrf_token %}
    <div class="form-group">
       <h1 style="text-align: center;">Know Your College</h1>
-      <h1 style="color: greenyellow;">LOGIN</h1>
+      <h1 >LOGIN</h1>
     {{ form|crispy}}
     <input type="submit" class="btn btn-primary" value="login">OR
     <a href="{% url 'register'%}">Register Now</a>

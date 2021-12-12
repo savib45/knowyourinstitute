@@ -20,10 +20,10 @@ class College(models.Model):
     college_name = models.CharField(max_length=30)
     address = models.CharField(max_length=30)
     website_url = models.CharField(max_length=40)
-    college_description = models.TextField(max_length=150)
+    college_description = models.TextField(max_length=500)
     contact_number = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
-    program = models.CharField(max_length=10)
+    program = models.CharField(max_length=50)
     college_photos = models.ImageField(upload_to='images/')
 
     def reviews(self):
