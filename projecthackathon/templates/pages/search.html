@@ -5,14 +5,27 @@
         <h1>you searched for {{ searched }}</h1>
         <br/>
         {% for found in found %}
-            {{found}}
-            {{found.address}}
-            {{found.website_url}}
-            {{found.college_description}}
-            {{found.contact_number}}
-            {{found.email}}
-            {{found.program}}
-            {{found.college_photos}}
+        <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src=" {{found.college_photos.url}} ", alt="{{found}}     " class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                  <h3 >{{ found }}</h3><br/>
+                  <h5>College Address:  {{found.address}}   </h5>
+                  <p>{{found.college_description}}</p>
+                  <h5>College Webpage: {{found.website_url}} </h5>
+                  <h5>Contact Number:{{found.contact_number}}</h5>
+                  <h5>College Programs: {{found.program}}</h5>
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          </div>
         {% endfor %}
     {% else %}
     <h1>Try another keyword</h1>

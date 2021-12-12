@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-this is index
 {% for college in colleges %}
-<a href="{% url 'login'  %}"><img src="{{college.college_photos.url}}"/></a>
+    <a href="/review/{{college.college_id}}"><img src="{{college.college_photos.url}}"/></a>
 {% endfor %}
 {% endblock %}

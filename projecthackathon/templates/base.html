@@ -9,7 +9,11 @@
     <link rel ="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
-{% include 'partials/nav.html' %}
+    {% if user.is_authenticated %}
+        {% include 'partials/navLoggedIn.html' %}
+    {% else %}
+        {% include 'partials/nav.html' %}
+    {% endif %}
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}

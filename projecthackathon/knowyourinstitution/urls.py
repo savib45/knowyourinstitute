@@ -11,4 +11,5 @@ urlpatterns = [
     path('logout',views.logout,name='logout'),
     path('review',views.review,name='review'),
     path('search',views.search,name='search'),
+    path('review/<id>',views.show, name="showcollege")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
