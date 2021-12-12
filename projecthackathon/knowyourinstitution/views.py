@@ -11,7 +11,8 @@ from knowyourinstitution.RatingForm import RatingForm
 from .models import College
 # Create your views here.
 def index(request):
-    return render(request, 'pages/index.html')
+    all_college = College.objects.all()
+    return render(request, 'pages/index.html',{'colleges':all_college})
 
 def register(request):
 
@@ -80,4 +81,4 @@ def search(request):
         found = College.objects.filter(college_name=searched)
         return render(request, 'pages/search.html',{'searched':searched,'found':found})
     else:
-        return render(request, 'pages/search.html',{})
+        return redirect('home')
