@@ -1,5 +1,10 @@
-{% extends 'base.html' %}
+{% if user.is_authenticated %}
+{% include 'partials/navLoggedIn.html' %}
 
 {% block content %}
-asd
+
 {%endblock%}
+
+{{user.username}}
+
+{% endif %}

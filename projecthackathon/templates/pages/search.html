@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if searched%}
+        <h1>you searched for {{ searched }}</h1>
+        <br/>
+        {% for found in found %}
+            {{found}}
+            {{found.address}}
+            {{found.website_url}}
+            {{found.college_description}}
+            {{found.contact_number}}
+            {{found.email}}
+            {{found.program}}
+            {{found.college_photos}}
+        {% endfor %}
+    {% else %}
+    <h1>Try another keyword</h1>
+    {% endif %}
+
+{%endblock%}

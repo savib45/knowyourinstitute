@@ -54,9 +54,9 @@ def login(request):
 def dash(request):
     return render(request, 'pages/dashboard.html')
 
-def logout_view(request):
+def logout(request):
     auth.logout(request)
-    return HttpResponseRedirect('/index')
+    return redirect('index')
 
 @login_required
 def review(request):
@@ -71,3 +71,13 @@ def review(request):
         review.college = College.objects.get(college_id = request.POST['id_college'])
         review.user = request.user
         review.save()
+        return redirect('home')
+
+
+def search(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        found = College.objects.filter(college_name=searched)
+        return render(request, 'pages/search.html',{'searched':searched,'found':found})
+    else:
+        return render(request, 'pages/search.html',{})
