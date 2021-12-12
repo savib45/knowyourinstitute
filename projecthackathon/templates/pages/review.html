@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -7,15 +8,74 @@
 <form action="/review" method="post">
     {% csrf_token %}
 
-    <input type="text" name="id_college" id="" value={{college.college_id}}>
-    {{form}}
-    {% for review in college.reviews %}
-        {{ review.text}}
-        {{ review.rating}}
-         {{review.user.first_name}}
-    {%endfor%}
+    <input type="text" name="id_college" id="" value={{college.college_id}}><img src="{{ college.college_photos.url}}" alt="">
+    {{form|crispy}}
+    
     <button type="submit">Submit</button>
 </form>
 {% endfor %}
 
 {%endblock%}
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+          <h3>Review</h3>
+          {{form}}
+            <textarea name="comment" id="comment" cols="30" rows="5" class="form-control"></textarea>
+      
+            <label for="rating">Rating</label>
+            <input type="range" id="rangeInput" name="rating" min="0" max="10" step="0.5"  value="0" oninput="amount.value=rangeInput.value">
+      
+            <output name="amount" id="amount" for="rangeInput">0</output>
+       </div>
+      <div class="col-md-8">
+        <h3 >{{ college.name }}</h3>
+        <h5>College Address: {{ college.location }}</h5>
+        <p>{{ college.description }}</p>
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card">
+<div class="card-body">
+  <h3>Comments</h3>
+  {{form}}
+
+    <label for="comment">Review</label>
+    <textarea name="comment" id="comment" cols="30" rows="5" class="form-control"></textarea>
+
+    <label for="rating">Rating</label>
+    <input type="range" id="rangeInput" name="rating" min="0" max="10" step="0.5"  value="0" oninput="amount.value=rangeInput.value">
+
+    <output name="amount" id="amount" for="rangeInput">0</output>
+
+    <br>
+    <input type="submit" name="inp" value="Post" class="btn btn-danger" placeholder="Enter your review">
+  </form>
+</div>
+</div>
+
+<div class="card">
+<div class="card-body">
+   
+    <div class="card" style="background-color: #f5eeee;">
+      <div class="row">
+        <div class="col-md-4">
+          
+          <h5>Rating : 
+          
+          <input type="text"/>
+        </div>
+        <div class="col-md-8">
+          
+        </div>
+      </div>
+    </div>
+  <br>
+</div>
+</div>
+

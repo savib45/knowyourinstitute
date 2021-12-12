@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+<div class = "contain">
+<br>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ college.college_photos.url }}", alt="{{ colleges.name }}"class="img-fluid">
+      </div>
+      <div class="col-md-8">
+        <h3 >{{ colleges.name }}</h3><br/>
+        <h5>College Address: {{ college.address }}</h5>
+        <p>{{ college.college_description }}</p>
+        <h5>College Webpage: {{ college.website_url }}</h5>
+        <h5>Contact Number: {{ college.contact_number }}</h5>
+        <h5>College Programs: {{ college.program }}</h5>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<br>
+<h1></h1>
+<center>
+  <h2>Reviewer</h2>
+{% for review in college.reviews%}
+  {{ review.user.first_name}}
+  {{ review.user.last_name }}<br/>
+  {{ review.text}}<br/>
+  {{ review.rating}}<br/><br/>
+{%endfor%}
+{% if user.is_authenticated %}
+<form action="#" method="post">
+{% csrf_token %}
+<div class="card">
+  <div class="card-body">
+    <h3>Comments</h3>
+    {{form}}
+  
+      <label for="comment">Review</label>
+      <textarea name="comment" id="comment" cols="30" rows="5" class="form-control"></textarea>
+  
+      <label for="rating">Rating</label>
+      <input type="range" id="rangeInput" name="rating" min="0" max="10" step="0.5"  value="0" oninput="amount.value=rangeInput.value">
+  
+      <output name="amount" id="amount" for="rangeInput">0</output>
+  
+      <br>
+      <input type="submit" name="inp" value="Post" class="btn btn-danger" placeholder="Enter your review">
+    </form>
+  </div>
+  </div>
+  
+  
+</form>
+    
+{{user.username}}s
+{% else %}
+<br/><br/><br/>
+<a href="{% url 'login' %}"><input type="submit" value="Login to Review"/></a>
+
+<br/><br/>
+{% endif %}</center>
+{%endblock%}

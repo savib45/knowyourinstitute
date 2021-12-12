@@ -35,15 +35,16 @@ def register(request):
         return render(request,'pages/register.html',{'user_form':user_form,'profile_form':profile_from})
 
 def login(request):
-
     if request.method == 'POST':
         print(request.POST['username'])
         username = request.POST['username']
         password = request.POST['password']
         user = auth.authenticate(username=username , password = password)
+ 
+
         if user is not None:
             auth.login(request,user)
-            return redirect('home')
+            return redirect('review')
         else:
             messages.info(request, 'invalid credentials')
             return redirect("/login")
@@ -53,7 +54,7 @@ def login(request):
 
 @login_required
 def dash(request):
-    return render(request, 'pages/dashboard.html')
+    return render(request, 'pages/show.html')
 
 def logout(request):
     auth.logout(request)
@@ -78,7 +79,12 @@ def review(request):
 def search(request):
     if request.method == 'POST':
         searched = request.POST['searched']
-        found = College.objects.filter(college_name=searched)
+        found = College.objects.filter(program=searched)
         return render(request, 'pages/search.html',{'searched':searched,'found':found})
     else:
         return redirect('home')
+
+def show(request,id):
+    college = College.objects.get(pk=id)
+    
+    return render(request , 'pages/show.html',{'college':college})
